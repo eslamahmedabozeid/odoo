@@ -23,7 +23,7 @@ export class AppComponent implements OnInit  {
   selectedRow: any;
 
   ngOnInit(): void {
-    this.fetchData(); // Corrected method name
+    this.fetchData(); 
   }
 
 
@@ -70,15 +70,9 @@ updatePaginatedData() {
 }
 
 successModal(){ 
-  
   (function ($) {
     $('#successModal').modal('show');
   })(jQuery);
-
-  if (this.selectedRow) {
-    this.selectedRow.name = this.newName;
-    this.confermation();
-}
 };
 
 setSelectedRow(row: any) {
@@ -87,6 +81,9 @@ setSelectedRow(row: any) {
 }
 
 confermation(){
+  if (this.selectedRow) {
+    this.selectedRow.name = this.newName;
+}
   this.closebutton.nativeElement.click();
   this.closesuccess.nativeElement.click();
 }
