@@ -1,0 +1,60 @@
+<section>
+    <div class="container">
+        <div class="search_input">
+            <input type="search" class="input_search" [(ngModel)]="searchText" (input)="onSearch()" autocomplete="off" placeholder="Search.......">
+
+        </div>
+
+        <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">id</th>
+                            <th class="cell100 column2">Name</th>
+                            <th class="cell100 column3">gender</th>
+                            <th class="cell100 column4">age</th>
+                            <th class="cell100 column5">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll ps ps--active-y">
+                <table>
+                    <tbody>
+                        <tr class="row100 body" *ngFor="let row of datas | paginate: {itemsPerPage: tableSize, currentPage: page, totalItems: count} | filter: searchText; let i = index">
+                            <td class="cell100 column1">{{ row.id }}</td>
+                            <td class="cell100 column2">{{ row.name }}</td>
+                            <td class="cell100 column3">{{ row.gender }}</td>
+                            <td class="cell100 column4">{{ row.age }}</td>
+                            <td class="cell100 column5"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edite Name</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-right">
+                <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</section>
