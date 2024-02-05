@@ -32,7 +32,6 @@ export class AppComponent implements OnInit  {
       (res) => {
         this.datas = res;
         this.filteredData = res;
-        console.log(res);
       }
     );
   }
