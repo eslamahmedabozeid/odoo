@@ -1,6 +1,7 @@
 // app.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AppService } from './app.service';
+declare  var jQuery:  any;
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit  {
-  
+  @ViewChild('closebutton') closebutton!:any;
+  @ViewChild('closesuccess') closesuccess!:any;
+
   constructor(private appService: AppService) {}
 
   title = 'angular-project';
@@ -65,4 +68,15 @@ updatePaginatedData() {
   this.paginatedData = this.filteredData.slice(startIndex, endIndex);
 }
 
+successModal(){ 
+  (function ($) {
+    $('#successModal').modal('show');
+  })(jQuery);
+};
+
+confermation(){
+  this.closebutton.nativeElement.click();
+  this.closesuccess.nativeElement.click();
+
+}
 }

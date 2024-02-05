@@ -511,3 +511,26 @@ td.cell100.column3,
 td.cell100.column4 {
     padding: 15px;
 }
+
+#successModal .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#successModal .modal-footer .btn-secondary,
+#successModal .modal-footer .btn-primary {
+    width: 100px;
+}
+
+#successModal .modal-body {
+    text-align: center;
+}
+
+#successModal .modal-header {
+    border: unset;
+}
+
+#successModal .modal-content {
+    height: 254px;
+}
