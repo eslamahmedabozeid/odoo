@@ -27,7 +27,9 @@
                             <td class="cell100 column2">{{ row.name }}</td>
                             <td class="cell100 column3">{{ row.gender }}</td>
                             <td class="cell100 column4">{{ row.age }}</td>
-                            <td class="cell100 column5"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button></td>
+                            <td class="cell100 column5">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setSelectedRow(row)">Edit</button>
+                            </td>
                         </tr>
 
                     </tbody>
@@ -41,7 +43,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closesuccess></button>
                             </div>
                             <div class="modal-body">
-                                <input type="text">
+                                <input type="text" [(ngModel)]="newName">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

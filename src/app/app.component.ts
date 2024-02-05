@@ -20,6 +20,7 @@ export class AppComponent implements OnInit  {
   datas: any;
   searchText:any
   filteredData:any
+  selectedRow: any;
 
   ngOnInit(): void {
     this.fetchData(); // Corrected method name
@@ -69,14 +70,24 @@ updatePaginatedData() {
 }
 
 successModal(){ 
+  
   (function ($) {
     $('#successModal').modal('show');
   })(jQuery);
+
+  if (this.selectedRow) {
+    this.selectedRow.name = this.newName;
+    this.confermation();
+}
 };
+
+setSelectedRow(row: any) {
+  this.selectedRow = row;
+  this.newName = row.name;
+}
 
 confermation(){
   this.closebutton.nativeElement.click();
   this.closesuccess.nativeElement.click();
-
 }
 }
